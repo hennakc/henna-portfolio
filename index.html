@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Fathima Henna KC — CSE (AI) Student</title>
+  <meta name="description" content="Portfolio of Fathima Henna KC, a CSE (AI) student.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&family=Yellowtail&family=Kalam:wght@400;700&family=Abril+Fatface&family=Archivo+Black&family=Bebas+Neue&family=Bowlby+One&family=Bungee&family=DM+Serif+Display:ital@1&family=Fraunces:ital,opsz,wght@1,9..144,900&family=Instrument+Serif:ital@1&family=Rubik+Mono+One&family=Shrikhand&family=Source+Serif+4:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="lock">
+
+  <!-- the cloth is drawn by cloth.js; the CSS gingham on #world is the fallback -->
+  <canvas id="cloth" aria-hidden="true"></canvas>
+
+  <!-- ===== the picnic cloth: everything lives on it ===== -->
+  <main id="world">
+
+    <section id="hero" aria-label="Intro">
+      <div class="prop par lp" data-k="0.18" id="p-laptop"></div>
+      <div class="prop par" data-k="0.12" id="p-glass"></div>
+      <div class="prop par" data-k="0.1" id="p-radio"></div>
+      <div class="prop par" data-k="0.16" id="p-camera"></div>
+      <div class="prop par flower" data-k="0.05" id="p-fl1"></div>
+      <div class="prop par flower" data-k="0.08" id="p-fl2"></div>
+      <div class="polaroid par" id="pol1" data-k="-0.55" data-r="-0.012" data-rot="-3"></div>
+    </section>
+
+    <section id="about" aria-label="Hello">
+      <div class="prop par flower" data-k="0.06" id="p-fl3"></div>
+      <div class="prop par flower" data-k="0.1" id="p-fl4"></div>
+      <div class="sticky">
+        <div id="postcard" class="postcard"></div>
+      </div>
+    </section>
+
+    <section id="work" aria-label="Selected work">
+      <h2 id="ransom" class="ransom" aria-label="Selected work"></h2>
+      <div id="rows" class="rows"></div>
+    </section>
+
+    <section id="end" aria-label="Contact">
+      <div class="prop par lp" data-k="0.14" id="p-laptop2"></div>
+      <div class="prop par" data-k="0.1" id="p-glass2"></div>
+      <div class="prop par" data-k="0.1" id="p-radio2"></div>
+      <div class="prop par" data-k="0.16" id="p-camera2"></div>
+      <div class="prop par flower" data-k="0.05" id="p-fl5"></div>
+      <div class="prop par flower" data-k="0.08" id="p-fl6"></div>
+      <div class="polaroid par" id="pol2" data-k="0.12" data-r="0.004" data-rot="-14"></div>
+    </section>
+
+    <!-- real copy for search engines / screen readers -->
+    <div class="copy sr" id="copy"></div>
+  </main>
+
+  <div id="shade" aria-hidden="true"></div>
+  <div id="fx" aria-hidden="true"></div>
+
+  <!-- ===== UI ===== -->
+  <a id="minimal" href="minimal.html">Minimal portfolio →</a>
+
+  <nav id="nav" aria-label="Menu">
+    <button class="open" id="nav-open" type="button" aria-label="Open menu" aria-expanded="false"></button>
+    <div class="sheet" id="nav-sheet"></div>
+  </nav>
+
+  <div id="more" class="more">
+    <span class="mouse"><i></i></span><b>Scroll</b>
+  </div>
+  <div id="cursorhint" class="cursorhint">Click to view</div>
+  <button id="sound" type="button" aria-label="Toggle sound" aria-pressed="false"><i></i><i></i><i></i></button>
+
+  <!-- ===== work case study ===== -->
+  <div id="case" class="case" aria-hidden="true">
+    <button class="back" id="case-back" type="button">← Back</button>
+    <article class="sheet"><div id="case-body"></div></article>
+  </div>
+
+  <!-- ===== write modal ===== -->
+  <div id="write" class="modal" aria-hidden="true">
+    <form id="write-form" class="card">
+      <button class="x" type="button" id="write-x" aria-label="Close">×</button>
+      <h3>Drop a line</h3>
+      <p>Leave your email and a short note. It opens your mail app.</p>
+      <label class="sr" for="w-email">Your email</label>
+      <input id="w-email" type="email" placeholder="you@email.com" required>
+      <textarea id="w-msg" rows="3" placeholder="Say hi…"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- ===== intro ===== -->
+  <div id="intro" aria-hidden="true">
+    <div class="istamp"><div class="ifloat" id="ifloat"></div><div class="ishadow"></div></div>
+    <button id="skip" type="button">Skip</button>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="art.js"></script>
+  <script src="app.js"></script>
+  <script src="cloth.js"></script>
+</body>
+</html>

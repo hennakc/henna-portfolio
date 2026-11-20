@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fathima Henna KC — Minimal portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0}
+    body{font:16px/1.6 Geist,system-ui,sans-serif;color:#1d1a19;background:#fbf8f2;padding:clamp(24px,6vw,72px)}
+    main{max-width:640px;margin:0 auto}
+    a{color:inherit}
+    .back{display:inline-block;margin-bottom:48px;font-size:14px;color:#7a7268;text-decoration:none}
+    h1{font-size:clamp(30px,6vw,44px);letter-spacing:-.03em;line-height:1.05}
+    .role{margin:10px 0 28px;color:#6b645b}
+    h2{margin:44px 0 12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8c8478}
+    ul{list-style:none;padding:0}
+    li{padding:14px 0;border-bottom:1px solid #e6dfd2}
+    li b{font-weight:600}li span{color:#8c8478;margin-left:8px;font-size:14px}
+    li p{color:#6b645b;font-size:14.5px;margin-top:2px}
+    .links{display:flex;flex-wrap:wrap;gap:8px 22px}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">← Back to the picnic</a>
+    <h1 id="n"></h1><p class="role" id="r"></p><p id="i"></p>
+    <h2>Selected work</h2><ul id="w"></ul>
+    <h2>Get in touch</h2><div class="links" id="c"></div>
+  </main>
+  <script src="content.js"></script>
+  <script>
+    const S = window.SITE, $ = (s) => document.getElementById(s);
+    $("n").textContent = S.name; $("r").textContent = S.role + " · " + S.status; $("i").textContent = S.intro;
+    $("w").innerHTML = S.works.map((w) => `<li><b>${w.link || w.repo ? `<a href="${w.link || w.repo}" target="_blank" rel="noopener">${w.title}</a>` : w.title}</b><span>${w.kind}</span><p>${w.blurb}</p></li>`).join("");
+    $("c").innerHTML = `<a href="mailto:${S.contact.email}">${S.contact.email}</a><a href="tel:${S.contact.phoneLink}">${S.contact.phone}</a>` + S.contact.links.map((l) => `<a href="${l.url}">${l.label}</a>`).join("");
+  </script>
+</body>
+</html>
